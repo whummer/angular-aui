@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="angular-aui-examples">
   <head>
-    <script src="/bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     
     <script type="text/javascript" src="dist/angular-aui.js"></script>
     <script type="text/javascript" src="index.js"></script>
     
     <!-- AUI -->
     <!--dependencies-->
-    <script src="/bower_components/requirejs/require.js"></script>
+    <script src="bower_components/requirejs/require.js"></script>
     <!--/ dependencies -->
-    <link rel="stylesheet" href="/lib/aui/5.7.0/css/aui.css" media="all">
+    <link rel="stylesheet" href="lib/aui/5.9.5/css/aui.css" media="all">
     <!--[if IE 9]><link rel="stylesheet" href="/lib/aui/5.7.0/css/aui-ie9.css" media="all"><![endif]-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="/lib/aui/5.7.0/js/aui.js"></script>
-    <script src="/lib/aui/5.7.0/js/aui-datepicker.js"></script>
-    <link rel="stylesheet" href="/lib/aui/5.7.0/css/aui-experimental.css" media="all">
-    <script src="/lib/aui/5.7.0/js/aui-experimental.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
+    <script src="lib/aui/5.9.5/js/aui.js"></script>
+    <script src="lib/aui/5.9.5/js/aui-datepicker.js"></script>
+    <link rel="stylesheet" href="lib/aui/5.9.5/css/aui-iconfonts.css" media="all">
+    <link rel="stylesheet" href="lib/aui/5.9.5/css/aui-experimental.css" media="all">
+    <script src="lib/aui/5.9.5/js/aui-experimental.js"></script>
     <!--/ AUI -->
 
   </head>
@@ -45,7 +46,7 @@
               $scope.model = {{model}};
             </code>
           </div>
-          
+
           <div ng-controller="InlineDialogCtrl" class="aui-group">
             <h2>InlineDialog</h2>
             <a href="#" aui-inline-dialog options="{persistent: true}">
@@ -66,6 +67,17 @@
             </select>
             <input type="button" value="Change" ng-click="selectedCountry = countries[1]"/>
             Country: <input type="text" ng-model="selectedCountry.id" disabled/>
+          </div>
+
+          <div ng-controller="ToggleCtrl" class="aui-group">
+            <h2>Toggle</h2>
+            <aui-toggle checked="toggle1.checked" label="toggle1.label" disabled="toggle1.disabled"></aui-toggle><br/>
+            <input type="checkbox" ng-model="toggle1.checked"/> Checked
+            <input type="checkbox" ng-model="toggle1.disabled"/> Disabled
+            <br/>
+            <aui-toggle checked="toggle2.checked" label="toggle2.label" disabled="toggle2.disabled"></aui-toggle><br/>
+            <input type="checkbox" ng-model="toggle2.checked"/> Checked
+            <input type="checkbox" ng-model="toggle2.disabled"/> Disabled
           </div>
         </section>
       </div>

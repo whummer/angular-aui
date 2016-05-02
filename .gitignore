@@ -5,3 +5,4 @@ node_modules/
 *.iml
 gulp
 npm-debug.log
+.DS_Store

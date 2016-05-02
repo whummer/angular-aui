@@ -32,6 +32,7 @@ module.exports = function(grunt) {
                 '* Version - <%= pkg.version %>\n' + 
                 '* Built - <%= grunt.template.today("yyyy-mm-dd") %>\n' + 
                 '* Author - <%= pkg.author %>\n' + 
+                '* Contributors - <%= pkg.contributors %>\n' + 
                 '* url - <%= pkg.repository.url %>\n' + 
                 '*/\n',
             },

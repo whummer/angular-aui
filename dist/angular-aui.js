@@ -1,8 +1,9 @@
 /*! 
 * angular-aui
 * Version - 0.0.3
-* Built - 2014-10-02
+* Built - 2016-05-02
 * Author - oleksandr.bezhan@gmail.com
+* Contributors - waldemar.hummer@gmail.com
 * url - https://github.com/OleksandrBezhan/angular-aui.git
 */
 'strict mode';
@@ -73,5 +74,54 @@ angular.module('angular-aui', ['angular-aui-directives']);;angular.module('angul
     return {
         require: 'ngModel',
         link: link
+    };
+}])
+.directive('auiToggle', [function() {
+    function link($scope, element, attrs, ngModelCtrl) {
+        var theScope = $scope.$parent;
+        angular.forEach(element, function(toggle) {
+
+            if(attrs.checked) {
+                theScope.$watch(attrs.checked, function(changed) {
+                    toggle.checked = changed;
+                });
+                var checked = theScope.$eval(attrs.checked);
+                if(!checked)
+                    toggle.removeAttribute("checked");
+                toggle.checked = theScope.$eval(checked) ? true : false;
+            }
+            if(attrs.disabled) {
+                theScope.$watch(attrs.disabled, function(changed) {
+                    toggle.disabled = changed;
+                });
+                var disabled = theScope.$eval(attrs.disabled);
+                if(!disabled)
+                    toggle.removeAttribute("disabled");
+                toggle.disabled = theScope.$eval(disabled) ? true : false;
+            }
+
+            toggle.addEventListener('change', function(e) {
+                var isChecked = toggle.checked;
+                if(toggle.getAttribute("checked") == null) {
+                    theScope.$apply(function() {
+                        theScope.$eval(attrs.checked + ' = false');
+                    });
+                } else {
+                    theScope.$apply(function() {
+                        theScope.$eval(attrs.checked + ' = true');
+                    });
+                }
+            });
+        });
+    }
+    return {
+        restrict: 'E',
+        link: link,
+        scope: {
+            label: '=',
+            checked: '=',
+            disabled: '=',
+            value: '='
+        }
     };
 }]);

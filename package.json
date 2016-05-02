@@ -11,6 +11,7 @@
     "url": "https://github.com/OleksandrBezhan/angular-aui.git"
   },
   "author": "oleksandr.bezhan@gmail.com",
+  "contributors": [ "waldemar.hummer@gmail.com" ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/OleksandrBezhan/angular-aui/issues"
